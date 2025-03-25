@@ -1,0 +1,76 @@
+#N canvas 570 23 870 670 12;
+#X obj 52 109 inlet;
+#X obj 202 110 inlet;
+#X obj 440 111 inlet;
+#X obj 189 525 outlet;
+#X obj 426 531 outlet;
+#X obj 189 469 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 428 483 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 126 465 gives bang for trigger, f 7;
+#X text 353 518 gives bang for rest, f 8;
+#X obj 188 392 spigot;
+#X obj 425 393 spigot;
+#X obj 246 378 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 492 394 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 204 269 5 0 0 0 - - -;
+#X floatatom 443 288 5 0 0 0 - - -;
+#X obj 187 305 >;
+#X obj 425 324 <;
+#X obj 52 179 t f f;
+#X text 199 72 set trigger level, f 13;
+#X text 436 75 set rest level, f 11;
+#X msg 556 411 0;
+#X obj 556 374 loadbang;
+#X msg 508 476 1;
+#X msg 246 483 0;
+#X msg 262 525 1;
+#X obj 242 300 loadbang;
+#X msg 244 333 1;
+#X text 51 59 recieves incoming value, f 11;
+#X text 307 304 opens the spigot when patch is opened, f 12;
+#X obj 385 269 t f b;
+#X obj 139 251 t f b;
+#X text 628 383 If patched is opened \, spigot is closed, f 14;
+#X text 492 272 If incoming value is smaller than rest value \, close
+rest spigot and open trigger spigot, f 16;
+#X text 51 304 If incoming value is bigger than trigger \, close trigger
+spigot and open rest spigot, f 16;
+#X obj 425 362 sel 1;
+#X obj 187 349 sel 1;
+#X text 53 8 our_threshold.pd;
+#X connect 0 0 17 0;
+#X connect 1 0 13 0;
+#X connect 2 0 14 0;
+#X connect 5 0 3 0;
+#X connect 5 0 24 0;
+#X connect 5 0 23 0;
+#X connect 6 0 4 0;
+#X connect 6 0 20 0;
+#X connect 6 0 22 0;
+#X connect 9 0 5 0;
+#X connect 10 0 6 0;
+#X connect 11 0 9 1;
+#X connect 12 0 10 1;
+#X connect 13 0 15 1;
+#X connect 14 0 16 1;
+#X connect 15 0 35 0;
+#X connect 16 0 34 0;
+#X connect 17 0 30 0;
+#X connect 17 1 29 0;
+#X connect 20 0 12 0;
+#X connect 21 0 20 0;
+#X connect 22 0 11 0;
+#X connect 23 0 11 0;
+#X connect 24 0 12 0;
+#X connect 25 0 26 0;
+#X connect 26 0 11 0;
+#X connect 29 0 16 0;
+#X connect 29 1 14 0;
+#X connect 30 0 15 0;
+#X connect 30 1 13 0;
+#X connect 34 0 10 0;
+#X connect 35 0 9 0;
